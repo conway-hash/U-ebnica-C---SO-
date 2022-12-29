@@ -11,14 +11,20 @@ html {
 
 body {
     font-family: "Chivo Mono", monospace;
-    width: 100%;
     height: 100vh;
-    padding: 2vh;
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
+    width: 100vw;
     background: #33333d;
     overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    padding: 2vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(180deg,#33333d 10%, #1eb980, #1eb980,#33333d,#007d51, #005d57);
 }
 
 .nav {
@@ -31,7 +37,7 @@ body {
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.192);
 
-    padding: 1rem;
+    padding: 3rem 1rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -39,6 +45,30 @@ body {
 
     overflow-y: scroll;
     scroll-behavior: smooth;
+}
+
+.nav::before {
+    content: "";
+    position: fixed;
+    height: 50px;
+    width: 325px;
+    z-index: 1;
+    background: linear-gradient(180deg, #373740, #37374018);
+    top: 2vh;
+    left: 2vh;
+    border-radius: 10px;
+}
+
+.nav::after {
+    content: "";
+    position: fixed;
+    height: 50px;
+    width: 325px;
+    z-index: 1;
+    background: linear-gradient(0deg,#373740, #37374018);
+    bottom: 2vh;
+    left: 2vh;
+    border-radius: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -115,6 +145,55 @@ body {
     background: linear-gradient(45deg, #1eb980, #1eb980, #005d57);
 }
 
+.buttons {
+    position: fixed;
+    bottom: 1vh;
+    left: 1vh;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    z-index: 3;
+}
+
+.buttons button {
+    all: unset;
+    background: linear-gradient(45deg, #1eb980, #1eb980, #005d57);
+    box-shadow: 7px -7px 10px rgba(0, 0, 0, 0.192);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    transition: scale 0.1s ease;
+}
+
+.buttons button svg {
+    width: 25px;
+}
+
+.buttons button:hover {
+    scale: 1.10;
+}
+
+.buttons button:active {
+    scale: 0.90;
+}
+
+.buttons .button-disabled {
+    filter: grayscale(100%);
+    cursor: not-allowed;
+}
+
+.buttons .button-disabled:hover {
+    scale: 1;
+}
+
+.buttons .button-disabled:active {
+    scale: 1;
+}
+
 .main {
     width: 100%;
     margin-left: 350px;
@@ -144,7 +223,7 @@ body {
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.192);
     color: #ededed;
-    padding: 2rem;
+    padding: 3rem 2rem;
     box-sizing: border-box;
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -154,37 +233,3 @@ body {
     position: absolute;
     top: -2vh;
 }
-/*
-.section h4 {
-    font-size: 23px;
-    margin-bottom: 0.8rem;
-}
-
-.section h5 {
-    font-size: 20px;
-    margin-bottom: 0.8rem;
-}
-
-.section h6 {
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 0.8rem;
-}
-
-.section p {
-    margin-bottom: 0.8rem;
-    font-weight: 200;
-    color: rgba(237, 237, 237, 0.7);
-}
-
-.section li {
-    margin-bottom: 0.8rem;
-    margin-left: 2rem;
-    font-weight: 200;
-    color: rgba(237, 237, 237, 0.7);
-}
-
-.section table {
-    margin-bottom: 0.8rem;
-}
-*/
