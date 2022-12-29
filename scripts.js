@@ -72,6 +72,20 @@ up.addEventListener('click', () => {
     }
     anchors[index].firstElementChild.classList.add('ul-li-active')
 
+    const yPosElement = anchors[index].firstElementChild.offsetTop
+    const nav = anchors[index].parentElement.parentElement.parentElement
+    const yPosNav = nav.offsetTop
+    const heightNav = nav.offsetHeight
+    const yPosition = yPosElement - yPosNav
+
+    if (yPosition > heightNav - 105) {
+        nav.scrollTop += yPosition + 210
+    }
+
+    if (yPosition < nav.scrollHeight - heightNav + 105) {
+        nav.scrollTop = yPosition - 210
+    }
+
     window.location = links[index]
 })
 
@@ -96,6 +110,20 @@ down.addEventListener('click', () => {
         anchors[index].parentElement.classList.remove('ul-inactive')
     }
     anchors[index].firstElementChild.classList.add('ul-li-active')
+
+    const yPosElement = anchors[index].firstElementChild.offsetTop
+    const nav = anchors[index].parentElement.parentElement.parentElement
+    const yPosNav = nav.offsetTop
+    const heightNav = nav.offsetHeight
+    const yPosition = yPosElement - yPosNav
+
+    if (yPosition > heightNav - 105) {
+        nav.scrollTop += yPosition + 210
+    }
+
+    if (yPosition < nav.scrollHeight - heightNav + 105) {
+        nav.scrollTop = yPosition - 210
+    }
 
     window.location = links[index]
 })
@@ -164,6 +192,20 @@ document.addEventListener('keydown', function (event) {
                 }
                 anchors[index].firstElementChild.classList.add('ul-li-active')
 
+                const yPosElement = anchors[index].firstElementChild.offsetTop
+                const nav = anchors[index].parentElement.parentElement.parentElement
+                const yPosNav = nav.offsetTop
+                const heightNav = nav.offsetHeight
+                const yPosition = yPosElement - yPosNav
+
+                if (yPosition > heightNav - 105) {
+                    nav.scrollTop += yPosition + 210
+                }
+
+                if (yPosition < nav.scrollHeight - heightNav + 105) {
+                    nav.scrollTop = yPosition - 210
+                }
+
                 window.location = links[index]
             }
             break;
@@ -199,6 +241,20 @@ document.addEventListener('keydown', function (event) {
                     anchors[index].parentElement.classList.remove('ul-inactive')
                 }
                 anchors[index].firstElementChild.classList.add('ul-li-active')
+
+                const yPosElement = anchors[index].firstElementChild.offsetTop
+                const nav = anchors[index].parentElement.parentElement.parentElement
+                const yPosNav = nav.offsetTop
+                const heightNav = nav.offsetHeight
+                const yPosition = yPosElement - yPosNav
+
+                if (yPosition > heightNav - 105) {
+                    nav.scrollTop += yPosition + 210
+                }
+
+                if (yPosition < nav.scrollHeight - heightNav + 105) {
+                    nav.scrollTop = yPosition - 210
+                }
 
                 window.location = links[index]
             }
