@@ -19,10 +19,14 @@ ul_lis.forEach(ul_li => {
         if (links.indexOf(active) == 0) {
             up.classList.add('button-disabled')
             up.setAttribute('disabled', '')
+            home.classList.add('button-disabled')
+            home.setAttribute('disabled', '')
         }
         if (up.classList.contains('button-disabled') & links.indexOf(active) != 0) {
             up.classList.remove('button-disabled')
             up.removeAttribute('disabled')
+            home.classList.remove('button-disabled')
+            home.removeAttribute('disabled')
         }
 
         if (links.indexOf(active) == 20) {
@@ -48,13 +52,15 @@ window.onload = function () {
 
 const up = document.getElementById('up')
 const down = document.getElementById('down')
-const active = document.querySelector('.ul-li-active').parentElement.href
+const home = document.getElementById('home')
 
 up.addEventListener('click', () => {
     const active = document.querySelector('.ul-li-active').parentElement.href
     if (links.indexOf(active) == 1) {
         up.classList.add('button-disabled')
         up.setAttribute('disabled', '')
+        home.classList.add('button-disabled')
+        home.setAttribute('disabled', '')
     }
     if (down.classList.contains('button-disabled')) {
         down.classList.remove('button-disabled')
@@ -67,6 +73,9 @@ up.addEventListener('click', () => {
         ul_li2.classList.remove('ul-li-active')
     })
 
+    el_names.forEach(el_name => {
+        el_name.parentElement.lastElementChild.classList.add('ul-inactive')
+    });
     if (anchors[index].parentElement.classList.contains('ul-inactive')) {
         anchors[index].parentElement.classList.remove('ul-inactive')
     }
@@ -85,6 +94,10 @@ down.addEventListener('click', () => {
         up.classList.remove('button-disabled')
         up.removeAttribute('disabled')
     }
+    if (home.classList.contains('button-disabled')) {
+        home.classList.remove('button-disabled')
+        home.removeAttribute('disabled')
+    }
 
     const index = links.indexOf(active) + 1
 
@@ -92,10 +105,38 @@ down.addEventListener('click', () => {
         ul_li2.classList.remove('ul-li-active')
     })
 
+    el_names.forEach(el_name => {
+        el_name.parentElement.lastElementChild.classList.add('ul-inactive')
+    });
     if (anchors[index].parentElement.classList.contains('ul-inactive')) {
         anchors[index].parentElement.classList.remove('ul-inactive')
     }
     anchors[index].firstElementChild.classList.add('ul-li-active')
 
     window.location = links[index]
+})
+
+home.addEventListener('click', () => {
+    el_names.forEach(el_name => {
+        el_name.parentElement.lastElementChild.classList.add('ul-inactive')
+    });
+    el_names[0].parentElement.lastElementChild.classList.remove('ul-inactive')
+
+    ul_lis.forEach(ul_li2 => {
+        ul_li2.classList.remove('ul-li-active')
+    })
+    ul_lis[0].classList.add('ul-li-active')
+
+    const active = document.querySelector('.ul-li-active').parentElement.href
+    if (links.indexOf(active) == 0) {
+        up.classList.add('button-disabled')
+        up.setAttribute('disabled', '')
+    }
+    if (down.classList.contains('button-disabled')) {
+        down.classList.remove('button-disabled')
+        down.removeAttribute('disabled')
+    }
+    home.classList.add('button-disabled')
+    home.setAttribute('disabled', '')
+    window.location = links[0]
 })
