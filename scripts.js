@@ -263,6 +263,7 @@ document.addEventListener('keydown', function (event) {
         } else {
             active = document.querySelector('.ul-li-active').parentElement.href
             index = links.indexOf(active) + 1
+            
             ul_lis.forEach(ul_li2 => {
                 ul_li2.classList.remove('ul-li-active')
             })
