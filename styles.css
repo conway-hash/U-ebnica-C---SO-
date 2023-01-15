@@ -145,6 +145,8 @@ body {
 
 .title_main {
     all: unset;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     background: linear-gradient(45deg, #1eb980, #1eb980, #005d57);
     color: #ededed;
