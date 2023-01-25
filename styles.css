@@ -100,7 +100,7 @@ body {
     flex-direction: column;
     gap: 1.5rem;
 
-    overflow-y: hidden;
+    overflow-y: scroll;
     scroll-behavior: smooth;
 }
 
@@ -159,13 +159,18 @@ body {
 .title_main h1 {
     all: unset;
     font-weight: 400;
-    font-size: 35px;
+    font-size: 34px;
 }
 
 .title_main h4 {
     all: unset;
     font-weight: 400;
     font-size: 15px;
+}
+
+.text_container div {
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-el {
@@ -388,7 +393,7 @@ body {
 }
 
 .h2 {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 800;
 }
 
@@ -397,6 +402,10 @@ body {
 }
 
 .h4 {
+    font-size: 20px;
+}
+
+.h6 {
     font-size: 20px;
 }
 
